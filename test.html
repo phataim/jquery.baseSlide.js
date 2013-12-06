@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    .test-wrap{
+        position: relative;
+        height: 500px;
+        width: 1200px;
+        margin: 0;
+        padding: 0;
+    }
+    .slide{
+        width: 300px;
+        height: 500px;
+        position: absolute;
+        display: block;
+        background: grey;
+        font-size: 50px;
+        text-align: center;
+        opacity: 0;
+    }
+
+</style>
+    <ul class="test-wrap">
+        <li class="slide s1">1</li>
+        <li class="slide s2">2</li>
+        <li class="slide s3">3</li>
+        <li class="slide s4">4</li>
+        <li class="slide s5">5</li>
+        <li class="slide s6">6</li>
+        <li class="slide s7">7</li>
+        <li class="slide s8">8</li>
+    </ul>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery.popSlide-1.0.js"></script>
+<script>
+    $('.test-wrap').popSlide({
+        auto : true,
+        delay : 5000,
+        duration : 200,
+        itemWidth : null,
+        itemHeight : null,
+        itemNum : null,
+        onShowFrame : 1,
+        onShow : {
+            num : 4,
+            style : [{
+                'left': '50px',
+                'top': '100px',
+                'width': '200px',
+                'height': '300px',
+                'opacity':'1'
+            },{
+                'width': '300px',
+                'height': '500px',
+                'left': '300px',
+                'top': '0px',
+                'opacity':'1'
+            },{
+                'left': '650px',
+                'top': '100px',
+                'width': '200px',
+                'height': '300px',
+                'opacity':'1'
+            },{
+                'left': '950px',
+                'top': '100px',
+                'width': '200px',
+                'height': '300px',
+                'opacity':'1'
+            },{
+                'left': '1200px',
+                'top': '100px',
+                'width': '100px',
+                'height': '300px',
+                'opacity':'1'
+            }]
+        },
+        readyState:{
+            left : {
+                'top':'250px',
+                'left':'0px',
+                'height':'0',
+                'width':'0',
+                'opacity':'0'
+            },
+            right : {
+                'top':'250px',
+                'left':'1200px',
+                'height':'0',
+                'width':'0',
+                'opacity':'0'
+            }
+        },
+        controller:{
+            'prev':'.btn-prev',
+            'next':'.btn-next',
+            prevCallBack:function(){},
+            nextCallBack:function(){}
+        }
+    })
+
+</script>
+</body>
+</html>
