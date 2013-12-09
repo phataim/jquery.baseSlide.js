@@ -65,6 +65,7 @@
 
 
         function init(){
+            self.css({'position':'relative','left':'100px'});
             var tmp = self.children();
             itemNum = tmp.length;
             onShowFrame = settings.onShowFrame;
