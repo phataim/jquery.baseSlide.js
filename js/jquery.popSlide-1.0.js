@@ -193,7 +193,7 @@
 
         function next(){
             if (onShowFrame > itemNum) {
-                show(0,'left')
+                show(1,'left')
             } else {
                 show(onShowFrame+1,'left');
             }
