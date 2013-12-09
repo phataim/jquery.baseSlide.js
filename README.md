@@ -45,9 +45,7 @@ html结构
 
 ### 接下来初始化即可
 
-    $('.slide-wrap').popSlide({
-        options
-    })
+    $('.slide-wrap').popSlide(options)
 
 ### options中配置api
 
