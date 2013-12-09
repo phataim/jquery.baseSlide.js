@@ -12,8 +12,6 @@
         auto : true,
         delay : 5000,
         duration : 200,
-        itemWidth : null,
-        itemHeight : null,
         itemNum : null,
         onShowFrame : 3,
         onShow : {
@@ -26,9 +24,7 @@
         },
         controller:{
             'prev':'.btn-prev',
-            'next':'.btn-next',
-            prevCallBack:function(){},
-            nextCallBack:function(){}
+            'next':'.btn-next'
         }
     }
 
@@ -67,7 +63,7 @@
         function init(){
             self.css({'position':'relative','left':'100px'});
             var tmp = self.children();
-            itemNum = tmp.length;
+            itemNum = setting.itemNum || tmp.length;
             onShowFrame = settings.onShowFrame;
             $.each(tmp, function(index, val) {
                 items[index] = $(tmp[index]);
