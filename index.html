@@ -9,7 +9,7 @@
     .test-wrap{
         position: relative;
         height: 500px;
-        width: 1200px;
+        width: 1500px;
         margin: 0;
         padding: 0;
     }
@@ -41,39 +41,37 @@
     $('.test-wrap').popSlide({
         auto : true,
         delay : 5000,
-        duration : 200,
-        itemWidth : null,
-        itemHeight : null,
+        duration : 1000,
         itemNum : null,
         onShowFrame : 1,
         onShow : {
-            num : 4,
+            num : 5,
             style : [{
-                'left': '50px',
+                'left': '100px',
                 'top': '100px',
-                'width': '200px',
+                'width': '100px',
                 'height': '300px',
-                'opacity':'1'
+                'opacity':'.2'
             },{
+                'width': '200px',
+                'height': '400px',
+                'left': '300px',
+                'top': '50px',
+                'opacity':'.4'
+            },{
+                'left': '600px',
+                'top': '0px',
                 'width': '300px',
                 'height': '500px',
-                'left': '300px',
-                'top': '0px',
-                'opacity':'1'
+                'opacity':'.6'
             },{
-                'left': '650px',
-                'top': '100px',
+                'left': '1000px',
+                'top': '50px',
                 'width': '200px',
-                'height': '300px',
-                'opacity':'1'
+                'height': '400px',
+                'opacity':'.8'
             },{
-                'left': '950px',
-                'top': '100px',
-                'width': '200px',
-                'height': '300px',
-                'opacity':'1'
-            },{
-                'left': '1200px',
+                'left': '1300px',
                 'top': '100px',
                 'width': '100px',
                 'height': '300px',
@@ -90,7 +88,7 @@
             },
             right : {
                 'top':'250px',
-                'left':'1200px',
+                'left':'1500px',
                 'height':'0',
                 'width':'0',
                 'opacity':'0'

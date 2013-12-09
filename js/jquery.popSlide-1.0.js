@@ -61,9 +61,9 @@
 
 
         function init(){
-            self.css({'position':'relative','left':'100px'});
+            self.css({'position':'relative'});
             var tmp = self.children();
-            itemNum = setting.itemNum || tmp.length;
+            itemNum = settings.itemNum || tmp.length;
             onShowFrame = settings.onShowFrame;
             $.each(tmp, function(index, val) {
                 items[index] = $(tmp[index]);
@@ -118,7 +118,6 @@
             var toShowQuene = getToShowQuene(getFirstFrame(toShowFrame));
 
             var readyQuene = getReadyQuene(toShowQuene,onShowQueue);
-            console.log(readyQuene)
 
             $.each(readyQuene, function(index, val) {
                 var tmpdir = '';
