@@ -25,15 +25,18 @@
         controller:{
             'prev':'.btn-prev',
             'next':'.btn-next'
+        },
+        pagination:{
+            
         }
     }
 
-    $.fn.popSlide = function( options ) {
+    $.fn.baseSlide = function( options ) {
 
         if(this.length == 0) return this;
 
         if(this.length > 1){
-            this.each(function(){$(this).popSlide(options)});
+            this.each(function(){$(this).baseSlide(options)});
             return this;
         }
 
@@ -67,6 +70,7 @@
             onShowFrame = settings.onShowFrame;
             $.each(tmp, function(index, val) {
                 items[index] = $(tmp[index]);
+                items[index].css({'position':'absolute'});
                 items[index].data.sliding = false;
             //     if(settings.frameClick === true)items[index].click(function(event) {
             //         if(index === 0){
@@ -113,7 +117,7 @@
 
             if(!isAnimationOver())return false;
 
-            if(typeof(settings.beforeSlide) === 'function')settings.beforeSlide(onShowFrame,toShowFrame);
+            if(typeof(settings.onStartSlide) === 'function')settings.onStartSlide(onShowFrame,toShowFrame);
 
             var toShowQuene = getToShowQuene(getFirstFrame(toShowFrame));
 
@@ -140,8 +144,9 @@
                 val.animate(settings.onShow.style[index],settings.duration,(function(x){
                     return function(){
                         toShowQuene[x].data.sliding = false;
+                        afterCall(settings.onStartSlide);
                         play();
-                        // afterCall(settings.afterSlide);
+                        
                     }
                 })(index));
             });
@@ -150,8 +155,8 @@
                 val.animate(settings.readyState[direction],settings.duration,(function(x){
                     return function(){
                         toHideQuene[x].data.sliding = false;
+                        afterCall(settings.afterSlide);
                         play();
-                        // afterCall(settings.afterSlide);
                     }
                 })(index));
             });
@@ -192,7 +197,7 @@
 
 
         function next(){
-            if (onShowFrame > itemNum) {
+            if (onShowFrame >= itemNum) {
                 show(1,'left')
             } else {
                 show(onShowFrame+1,'left');
